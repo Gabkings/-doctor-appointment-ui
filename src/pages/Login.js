@@ -3,12 +3,17 @@ import { Button, Form, Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import toast from "react-hot-toast";
+import { useDispatch } from 'react-redux'
+import { showLoading, hideLoading } from '../redux/alertsReducer';
 
 export const Login = () => {
+    const dispatch = useDispatch();
     const navigation = useNavigate()
     const onFinish = async(values) => {
         try {
+            dispatch(showLoading());
             const response = await axios.post("/api/user/login", values)
+            dispatch(hideLoading());
             if (response.data.success) {
                 console.log(response.data.data)
                 localStorage.setItem("token", response.data.data)
@@ -18,6 +23,7 @@ export const Login = () => {
                 toast.error(response.data.message)
             }
         } catch (error) {
+            dispatch(hideLoading());
             toast.error(error.message)
         }
     }
