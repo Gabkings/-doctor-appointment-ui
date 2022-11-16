@@ -15,7 +15,6 @@ export const Login = () => {
             const response = await axios.post("/api/user/login", values)
             dispatch(hideLoading());
             if (response.data.success) {
-                console.log(response.data.data)
                 localStorage.setItem("token", response.data.data)
                 toast.success("Redirecting to home page")
                 navigation("/")

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Toaster } from 'react-hot-toast'
 import { Home } from './pages/Home';
 import PublicRoute from './components/PublicRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
     const { loading } = useSelector((state) => state.alerts);
@@ -29,17 +30,18 @@ function App() {
             Routes >
             <
             Route path = '/login'
-            element = { < PublicRoute > < Login / > < /PublicRoute>  } /
-                > <
+            element = { < PublicRoute > < Login / > < /PublicRoute>  } / >
+                <
                 Route path = '/register'
-                element = { < PublicRoute > < Register / > < /PublicRoute>  } /
-                    > <
+                element = { < PublicRoute > < Register / > < /PublicRoute>  } / >
+                    <
                     Route path = '/'
-                    element = { < Home / > }
-                    />  < /
-                    Routes > <
-                    /BrowserRouter>
-                );
-            }
+                    element = { < ProtectedRoute > < Home / > < /ProtectedRoute> } / >
+                        <
+                        /
+                        Routes > <
+                        /BrowserRouter>
+                    );
+                }
 
-            export default App;
+                export default App;
