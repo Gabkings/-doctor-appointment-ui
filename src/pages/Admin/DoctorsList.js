@@ -13,7 +13,7 @@ function DoctorsList() {
     const getDoctorsData = async() => {
         try {
             dispatch(showLoading());
-            const resposne = await axios.get("/api/admin/get-all-doctors", {
+            const resposne = await axios.get("https://obscure-mesa-07404.herokuapp.com/api/admin/get-all-doctors", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -31,7 +31,7 @@ function DoctorsList() {
         try {
             dispatch(showLoading());
             const resposne = await axios.post(
-                "/api/admin/change-doctor-account-status", { doctorId: record._id, userId: record.userId, status: status }, {
+                "https://obscure-mesa-07404.herokuapp.com/api/admin/change-doctor-account-status", { doctorId: record._id, userId: record.userId, status: status }, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
@@ -79,7 +79,8 @@ function DoctorsList() {
                     record.status === "pending" && ( <
                         h1 className = "anchor"
                         onClick = {
-                            () => changeDoctorStatus(record, "approved") } >
+                            () => changeDoctorStatus(record, "approved")
+                        } >
                         Approve <
                         /h1>
                     )
@@ -87,7 +88,8 @@ function DoctorsList() {
                     record.status === "approved" && ( <
                         h1 className = "anchor"
                         onClick = {
-                            () => changeDoctorStatus(record, "blocked") } >
+                            () => changeDoctorStatus(record, "blocked")
+                        } >
                         Block <
                         /h1>
                     )
@@ -104,8 +106,8 @@ function DoctorsList() {
         <
         Table columns = { columns }
         dataSource = { doctors }
-        /> <
-        /Layout>
+        /> < /
+        Layout >
     );
 }
 

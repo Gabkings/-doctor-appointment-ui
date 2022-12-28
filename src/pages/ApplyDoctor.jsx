@@ -17,7 +17,7 @@ function ApplyDoctor() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/user/apply-doctor-account",
+        "https://obscure-mesa-07404.herokuapp.com/api/user/apply-doctor-account",
         {
           ...values,
           userId: user._id,

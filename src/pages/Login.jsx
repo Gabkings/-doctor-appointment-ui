@@ -12,7 +12,7 @@ export const Login = () => {
     const onFinish = async(values) => {
         try {
             dispatch(showLoading());
-            const response = await axios.post("/api/user/login", values)
+            const response = await axios.post("https://obscure-mesa-07404.herokuapp.com/api/user/login", values)
             dispatch(hideLoading());
             if (response.data.success) {
                 localStorage.setItem("token", response.data.data)
