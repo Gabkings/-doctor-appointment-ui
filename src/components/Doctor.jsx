@@ -6,7 +6,7 @@ function Doctor({ doctor }) {
   return (
     <div
       className="card p-2 cursor-pointer"
-      onClick={() => navigate(`https://obscure-mesa-07404.herokuapp.com/book-appointment/${doctor._id}`)}
+      onClick={() => navigate(`/book-appointment/${doctor._id}`)}
     >
       <h1 className="card-title">
         {doctor.firstName} {doctor.lastName}

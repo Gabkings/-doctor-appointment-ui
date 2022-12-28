@@ -47,7 +47,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/user/check-booking-avilability",
+        "https://obscure-mesa-07404.herokuapp.com/api/user/check-booking-avilability",
         {
           doctorId: params.doctorId,
           date: date,
