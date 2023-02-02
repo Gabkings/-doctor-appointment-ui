@@ -12,7 +12,7 @@ function Userslist() {
     const getUsersData = async() => {
         try {
             dispatch(showLoading());
-            const resposne = await axios.get("https://obscure-mesa-07404.herokuapp.com/api/admin/get-all-users", {
+            const resposne = await axios.get("api/admin/get-all-users", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

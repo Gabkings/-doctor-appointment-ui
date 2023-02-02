@@ -19,7 +19,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://obscure-mesa-07404.herokuapp.com/api/doctor/update-doctor-profile",
+        "api/doctor/update-doctor-profile",
         {
           ...values,
           userId: user._id,
@@ -51,7 +51,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://obscure-mesa-07404.herokuapp.com/api/doctor/get-doctor-info-by-user-id",
+        "api/doctor/get-doctor-info-by-user-id",
         {
           userId: params.userId,
         },

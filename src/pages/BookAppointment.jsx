@@ -23,7 +23,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://obscure-mesa-07404.herokuapp.com/api/doctor/get-doctor-info-by-id",
+        "api/doctor/get-doctor-info-by-id",
         {
           doctorId: params.doctorId,
         },
@@ -47,7 +47,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://obscure-mesa-07404.herokuapp.com/api/user/check-booking-avilability",
+        "api/user/check-booking-avilability",
         {
           doctorId: params.doctorId,
           date: date,
@@ -76,7 +76,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://obscure-mesa-07404.herokuapp.com/api/user/book-appointment",
+        "api/user/book-appointment",
         {
           doctorId: params.doctorId,
           userId: user._id,

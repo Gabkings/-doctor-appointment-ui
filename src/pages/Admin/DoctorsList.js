@@ -13,7 +13,7 @@ function DoctorsList() {
     const getDoctorsData = async() => {
         try {
             dispatch(showLoading());
-            const resposne = await axios.get("https://obscure-mesa-07404.herokuapp.com/api/admin/get-all-doctors", {
+            const resposne = await axios.get("api/admin/get-all-doctors", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
